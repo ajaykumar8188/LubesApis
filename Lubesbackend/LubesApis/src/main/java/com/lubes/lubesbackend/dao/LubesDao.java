@@ -1,6 +1,7 @@
 package com.lubes.lubesbackend.dao;
 
 import com.lubes.lubesbackend.model.categories;
+import com.lubes.lubesbackend.model.roles;
 
 public interface LubesDao {
 
@@ -9,5 +10,7 @@ public interface LubesDao {
 	Object GetCategories();
 
 	Object Savecategories(categories category);
+
+	Object Saveroles(roles role);
 
 }

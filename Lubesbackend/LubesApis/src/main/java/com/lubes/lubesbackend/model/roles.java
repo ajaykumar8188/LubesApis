@@ -4,6 +4,8 @@ public class roles {
 	private Integer id;
 	private String name;
 	private String Descrption;
+	private Integer active;
+	private String flag;
 	public Integer getId() {
 		return id;
 	}
@@ -22,6 +24,19 @@ public class roles {
 	public void setDescrption(String descrption) {
 		Descrption = descrption;
 	}
+	public Integer getActive() {
+		return active;
+	}
+	public void setActive(Integer active) {
+		this.active = active;
+	}
+	public String getFlag() {
+		return flag;
+	}
+	public void setFlag(String flag) {
+		this.flag = flag;
+	}
+	
 	
 
 }

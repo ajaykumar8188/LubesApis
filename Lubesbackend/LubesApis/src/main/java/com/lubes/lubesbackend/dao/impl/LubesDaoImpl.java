@@ -54,6 +54,7 @@ public class LubesDaoImpl implements LubesDao{
 						c.setId((Integer) map.get("Id"));
 						c.setName((String) map.get("Name"));
 						c.setDescrption((String) map.get("Description"));
+						c.setActive((Integer) map.get("active"));
 						
 						Result.add(c);
 
@@ -118,6 +119,33 @@ public class LubesDaoImpl implements LubesDao{
 	    inParamMap.put("p_description", category.getDescription());
 	    inParamMap.put("p_parent_id", category.getParent_id());
 	    inParamMap.put("p_is_active", category.getIs_active());
+
+	    SqlParameterSource in = new MapSqlParameterSource(inParamMap);
+
+	    Map<String, Object> result = simpleJdbcCall.execute(in);
+
+	    // 🔥 Extract SELECT result
+	    @SuppressWarnings("unchecked")
+	    List<Map<String, Object>> resultSet =
+	            (List<Map<String, Object>>) result.get("#result-set-1");
+
+	    // Always return first row {status, message}
+	    return resultSet.get(0);
+	}
+	
+	@Override
+	public Map<String, Object> Saveroles(roles role) {
+
+	    SimpleJdbcCall simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
+	            .withCatalogName(Schema)
+	            .withProcedureName("INSUPDelcategories");
+
+	    Map<String, Object> inParamMap = new HashMap<>();
+	    inParamMap.put("p_flag", role.getFlag());
+	    inParamMap.put("p_id", role.getId());
+	    inParamMap.put("p_name", role.getName());
+	    inParamMap.put("p_description", role.getDescrption());
+	    inParamMap.put("p_is_active", role.getActive());
 
 	    SqlParameterSource in = new MapSqlParameterSource(inParamMap);
 

@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import com.lubes.lubesbackend.dao.LubesDao;
 import com.lubes.lubesbackend.model.categories;
+import com.lubes.lubesbackend.model.roles;
 import com.lubes.lubesbackend.service.LubesService;
 
 
@@ -27,5 +28,11 @@ public class LubesServiceImpl implements LubesService {
 	public Object Savecategories(categories category) {
 		return lubesDao.Savecategories(category);
 	}
+	
+	@Override
+	public Object Saveroles(roles role) {
+		return lubesDao.Saveroles(role);
+	}
+
 
 }

@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.lubes.lubesbackend.model.categories;
+import com.lubes.lubesbackend.model.roles;
 import com.lubes.lubesbackend.service.LubesService;
 
 
@@ -29,5 +30,9 @@ public class LubesController {
 	@PostMapping("/api/admin/Savecategories")
 	public Object Savecategories(@RequestBody categories category) {
 		return lubesService.Savecategories(category);
+	}
+	@PostMapping("/api/admin/Saveroles")
+	public Object Saveroles(@RequestBody roles role) {
+		return lubesService.Saveroles(role);
 	}
 }
